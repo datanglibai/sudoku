@@ -11,26 +11,31 @@
     <script type="text/babel">
       var Input = React.createClass({
         getInitialState: function() {
-          return {id: 0, value: 'Hello!'};
+          return {value1: 'Hello!', value2: 'world!'};
         },
         handleChange: function(event) {
-          this.setState({id: event.target.id, value: event.target.value});
+          if (event.target.id == "0")
+            this.setState({value1: event.target.value});
+          else
+            this.setState({value2: event.target.value});
         },
         render: function () {
           //var values=[];
-           var values[this.state.id]= this.state.value;
+           var value1 = this.state.value1;
+           var value2 = this.state.value2;
+
           return (
             
-            for(var i =0; i < 9; i++){
             <div>
-              <input id ={i} type="text" value={value} onChange={this.handleChange} />
+              <input id="0"  type="text" value={value} onChange={this.handleChange} />
             </div>
-             }
-            for(var j =0; j< 9; j++){
-              <div
-            <span>{values[j]}</span>
+            <div>
+              <input id="1"  type="text" value={value} onChange={this.handleChange} />
             </div>
-          }
+            <div
+            <p>{value1}</p>
+            <p>{value2}</p>
+            </div>
          
           )
         }
